@@ -19,9 +19,9 @@ export class AppComponent {
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
 
-  firstRecipe = {
-    title: 'Spaghetti',
-    ingredients: ['2.5 C Sauce', '1 stewed tomato', '1 Box Noodles'],
-    directions: 'Cook noodles and throw on some sauce and the stewed tomato.'
-  }
+  firstRecipe: Recipe = new Recipe('Spaghetti', ['2.5 C Sauce', '1 stewed tomato', '1 Box Noodles'],'Cook noodles and throw on some sauce and the stewed tomato.');
+}
+
+export class Recipe {
+  constructor (public title: string, public ingredients: string[], public directions: string) {}
 }
