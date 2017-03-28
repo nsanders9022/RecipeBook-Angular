@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>Recipe Box</h1>
     <h3>Date: {{month}}/{{day}}/{{year}}</h3>
-    <h3>{{firstRecipe.title}}</h3>
-    <li *ngFor="let ingredient of firstRecipe.ingredients">{{ingredient}}</li>
-    <p>{{firstRecipe.directions}}</p>
+    <div *ngFor="let recipe of recipes">
+      <h3>{{recipe.title}}</h3>
+      <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+      <p>{{recipe.directions}}</p>
+    </div>
   </div>
   `
 })
@@ -18,8 +20,11 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
-
-  firstRecipe: Recipe = new Recipe('Spaghetti', ['2.5 C Sauce', '1 stewed tomato', '1 Box Noodles'],'Cook noodles and throw on some sauce and the stewed tomato.');
+  recipes: Recipe[] = [
+    new Recipe('Spaghetti', ['2.5 C Sauce', '1 stewed tomato', '1 Box Noodles'],'Cook noodles and throw on some sauce and the stewed tomato.'),
+    new Recipe('Baked Potatoes', ['5 potatoes', '2 TB Veggie Oil', '1 tsp Salt'], 'Preheat oven to 375. While preheating, smother potatoes in Veggie oil and sprinkle salt. Put them on the baking sheet and cook for an hour.'),
+    new Recipe('Banana and PB', ['1 Banana', '2 TB Peanut Butter'], 'Put some peanut butter on the banana and enjoy.')
+  ]
 }
 
 export class Recipe {
