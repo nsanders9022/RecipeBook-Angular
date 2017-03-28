@@ -28,9 +28,7 @@ export class AppComponent {
     new Recipe('Banana and PB', ['1 Banana', '2 TB Peanut Butter'], 'Put some peanut butter on the banana and enjoy.')
   ]
 
-  displayRecipe(clickedRecipe) {
-    this.currentRecipe = clickedRecipe;
-  }
+
 }
 
 export class Recipe {
